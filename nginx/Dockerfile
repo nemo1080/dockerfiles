@@ -12,7 +12,9 @@ RUN cd /usr/local \
     && rm nginx.tar \
     && ln -s /usr/local/nginx/sbin/nginx /usr/local/bin/nginx
 
-VOLUME ["/usr/local/nginx/conf.d", "/app"]
+RUN mkdir -p /var/www/letsencrypt
+
+VOLUME ["/usr/local/nginx/conf.d", "/usr/local/nginx/logs"]
 
 EXPOSE 80 443
 
